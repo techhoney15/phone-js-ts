@@ -1,0 +1,41 @@
+{
+  "name": "validate-phone-number",
+  "version": "1.0.1",
+  "description": "Validate phone numbers by country or ISD code",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/**/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/techhoney15/validate-phone-number.git"
+  },
+  "bugs": {
+    "url": "https://github.com/techhoney15/validate-phone-number/issues"
+  },
+  "homepage": "https://github.com/techhoney15/validate-phone-number#readme",
+  "author": "Honey Kumar",
+  "license": "MIT",
+  "keywords": [
+    "phone",
+    "phone-number",
+    "validate-phone-number",
+    "validator",
+    "validation",
+    "npm"
+  ],
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx tsc && node dist/index.js"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.0.4",
+    "jest": "^30.0.3",
+    "ts-jest": "^29.4.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  }
+}
