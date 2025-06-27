@@ -196,8 +196,3 @@ export function validatePhoneNumber({ callingCode = "", countryCode = "", phone 
         },
     };
 }
-console.log(validatePhoneNumber({
-    callingCode: "+49",
-    countryCode: "DE",
-    phone: "12345",
-}));

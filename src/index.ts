@@ -237,3 +237,4 @@ export function validatePhoneNumber({
       standardizedPhoneNumber: `+${COUNTRY_DATA?.countryCallingCode} ${phone}`,
     },
   };
+}
