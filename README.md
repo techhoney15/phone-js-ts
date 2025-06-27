@@ -261,7 +261,7 @@ console.log(result10);
 */
 ```
 
-````js
+```js
 // Example 1: All three parameters (callingCode, countryCode, phone)
 const result1 = validatePhoneNumber({
   callingCode: "+91",
@@ -390,7 +390,3 @@ console.log(result6);
 }
 */
 ```
-
-
-```
-````
