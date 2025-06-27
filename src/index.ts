@@ -1,15 +1,28 @@
-import { CountryPhoneData, countryPhoneData } from "./data/countryData.js";
+import { countryPhoneData } from "./data/countryData.js";
 
 interface PhoneNumberInput {
   callingCode?: string; // "+91", "1", etc.
   countryCode?: string; // "IN", "USA", etc.
-  phone: string;
+  phone?: string;
 }
+
+function _removeSpacesAndSpecialChars(input: string): string {
+  return input.replace(/[\s\-()]/g, "").replace(/^\+/, "");
+}
+
+function _testOnlyNumbers(input: string): boolean {
+  return /^[0-9]+$/.test(input);
+}
+
+function _testOnlyAlphabets(input: string): boolean {
+  return /^[A-Z]{2}$/.test(input);
+}
+
 function _checkValidations(_input: any, _type: any) {
   if (_type === "COUNTRY_CODE") {
     if (_input.length != 2) {
       return false;
-    } else if (!/^[A-Z]{2}$/.test(_input)) {
+    } else if (!_testOnlyAlphabets(_input)) {
       return false;
     } else {
       return String(_input.toUpperCase());
@@ -17,37 +30,109 @@ function _checkValidations(_input: any, _type: any) {
   } else if (_type === "CALLING_CODE") {
     if (_input.length < 1 || _input.length > 4) {
       return false;
-    } else if (!/^\+?[0-9]+$/.test(_input)) {
+    } else if (!_testOnlyNumbers(_input)) {
       return false;
     } else {
-      return String(_input.replace("+", ""));
+      return String(_input);
     }
   } else if (_type === "PHONE") {
     if (_input.length < 5 || _input.length > 15) {
       return false;
-    } else if (!/^[0-9]+$/.test(_input)) {
+    } else if (!_testOnlyNumbers(_input)) {
       return false;
-    } else {
-      return String(_input.replace(/[\s\-]/g, ""));
+    }
+    //  else if (_checkOnlyPhoneNumber(_input)) {
+    //   const ONE_MORE_CHECK: any = _checkOnlyPhoneNumber(_input);
+    //   if (!ONE_MORE_CHECK.status) {
+    //     return String(_input);
+    //   } else {
+    //     return ONE_MORE_CHECK;
+    //   }
+    // }
+    else {
+      return String(_input);
     }
   }
 }
 
+const _checkOnlyPhoneNumber = (_input: any) => {
+  _input = _input.replace(/\s+/g, "");
+  console.log(_input, "_input_input");
+
+  if (_input.length < 5 || _input.length > 15) {
+    return {
+      status: false,
+      error: "Invalid phone number length",
+      data: null,
+    };
+  } else {
+    const sanitizedPhone = _input;
+
+    for (let i = 1; i <= 4; i++) {
+      const prefix = sanitizedPhone.substring(0, i);
+      const country = countryPhoneData.find(
+        (c) => c.countryCallingCode === prefix
+      );
+      if (country) {
+        const restPhone = sanitizedPhone.substring(i);
+        if (
+          country.phone_number_lengths.includes(restPhone.length) &&
+          (!country.mobile_begin_with ||
+            country.mobile_begin_with.some((p: string) =>
+              restPhone.startsWith(p)
+            ))
+        ) {
+          return {
+            status: true,
+            error: null,
+            message: `Phone number is valid for ${country.countryName} (${country.countryCode})`,
+            data: {
+              countryCode: country.countryCode,
+              countryCode3: country.countryCode3,
+              countryCallingCode: country.countryCallingCode,
+              countryCallingCodeWithPlus: "+" + country.countryCallingCode,
+              countryName: country.countryName,
+              phone: restPhone,
+              formalPhoneNumber: `${country.countryCallingCode} ${restPhone}`,
+              formalPhoneNumerWithPlus: `+${country.countryCallingCode} ${restPhone}`,
+              standardizedPhoneNumber: `+${country.countryCallingCode} ${restPhone}`,
+            },
+          };
+        }
+      }
+    }
+
+    return {
+      status: false,
+      error:
+        "Could not determine country from phone number, please provide calling code or country code",
+      data: null,
+    };
+  }
+};
+
 export function validatePhoneNumber({
   callingCode = "",
   countryCode = "",
-  phone,
+  phone = "",
 }: PhoneNumberInput) {
   let CALLING_CODE: string | undefined | boolean;
   let COUNTRY_CODE: string | undefined | boolean;
-  let PHONE: string | undefined | boolean;
+  let PHONE: string | undefined | boolean | any;
+
+  callingCode = callingCode.toString();
+  countryCode = countryCode.toString();
+  phone = phone.toString();
+
+  callingCode = _removeSpacesAndSpecialChars(callingCode);
+  countryCode = _removeSpacesAndSpecialChars(countryCode);
+  phone = _removeSpacesAndSpecialChars(phone);
+
+  console.log(phone, "phonephone API");
 
   if (!callingCode && !countryCode) {
-    return {
-      status: false,
-      error: "Either country code or calling code is required",
-      data: null,
-    };
+    const RESULT = _checkOnlyPhoneNumber(phone);
+    return RESULT;
   }
 
   if (callingCode) {
@@ -66,8 +151,11 @@ export function validatePhoneNumber({
 
   if (phone) {
     PHONE = _checkValidations(String(phone), "PHONE");
+    console.log(PHONE, "PHONEPHONEPHONEPHONE");
     if (!PHONE) {
       return { status: false, error: "Invalid phone number", data: null };
+    } else if (PHONE?.status === true) {
+      return PHONE;
     }
   } else {
     return { status: false, error: "Phone number is required", data: null };
@@ -98,7 +186,8 @@ export function validatePhoneNumber({
     ) {
       return {
         status: false,
-        error: "Calling code should match with country code",
+        error:
+          "The provided calling code and country code do not match the same country",
         data: null,
       };
     }
@@ -108,7 +197,7 @@ export function validatePhoneNumber({
     return {
       status: false,
       error:
-        "Invalid phone number length " +
+        "Invalid phone number length, It should be of " +
         COUNTRY_DATA?.phone_number_lengths.join(" or "),
       data: null,
     };
@@ -140,7 +229,20 @@ export function validatePhoneNumber({
       countryCode: COUNTRY_DATA?.countryCode,
       countryCode3: COUNTRY_DATA?.countryCode3,
       countryCallingCode: COUNTRY_DATA?.countryCallingCode,
+      countryCallingCodeWithPlus: "+" + COUNTRY_DATA?.countryCallingCode,
       countryName: COUNTRY_DATA?.countryName,
+      phone: PHONE,
+      formalPhoneNumber: `${COUNTRY_DATA?.countryCallingCode} ${PHONE}`,
+      formalPhoneNumerWithPlus: `+${COUNTRY_DATA?.countryCallingCode} ${PHONE}`,
+      standardizedPhoneNumber: `+${COUNTRY_DATA?.countryCallingCode} ${phone}`,
     },
   };
 }
+
+console.log(
+  validatePhoneNumber({
+    callingCode: "+49",
+    countryCode: "DE",
+    phone: "12345",
+  })
+);
