@@ -1,8 +1,8 @@
 # phonevalidate
 
-Easily check if a phone number is valid for a specific country and calling code. Just provide the country code, calling code, and phone number to get a detailed validation result.
+A simple, lightweight, and easy-to-implement utility to validate international phone numbers and retrieve structured information—including country name, country codes, and formatted phone numbers.
 
-A simple utility to validate international phone numbers and retrieve structured information—including country name, country codes, and formatted phone numbers.
+Easily check if a phone number is valid for a specific country and calling code. Just provide the country code, calling code, and phone number to get a detailed validation result.
 
 > **Guideline:** If you provide both the calling code and country code, do **not** append the calling code to the phone number itself. The phone number should only contain the local part.
 
