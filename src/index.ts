@@ -237,12 +237,3 @@ export function validatePhoneNumber({
       standardizedPhoneNumber: `+${COUNTRY_DATA?.countryCallingCode} ${phone}`,
     },
   };
-}
-
-console.log(
-  validatePhoneNumber({
-    callingCode: "+49",
-    countryCode: "DE",
-    phone: "12345",
-  })
-);
