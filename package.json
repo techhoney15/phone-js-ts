@@ -1,5 +1,5 @@
 {
-  "name": "phone-validator",
+  "name": "phone-validator-js",
   "version": "1.0.1",
   "description": "Validate phone numbers by country or ISD code",
   "main": "dist/index.js",
@@ -9,12 +9,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/techhoney15/phone-validator.git"
+    "url": "git+https://github.com/techhoney15/phone-validator-js.git"
   },
   "bugs": {
-    "url": "https://github.com/techhoney15/phone-validator/issues"
+    "url": "https://github.com/techhoney15/phone-validator-js/issues"
   },
-  "homepage": "https://github.com/techhoney15/phone-validator#readme",
+  "homepage": "https://github.com/techhoney15/phone-validator-js#readme",
   "author": "Honey Kumar",
   "license": "MIT",
   "keywords": [
@@ -40,8 +40,8 @@
     "phone number verify js",
     "phone number verification js",
     "phone number validation library",
-    "phone-validator",
     "phone-validator-js",
+    "phone-validator-js-js",
     "phone-number-validation",
     "phone-number-validator",
     "phone-number-validation-js",
@@ -54,7 +54,7 @@
     "validate-phone",
     "validate-phone-number",
     "validate-phone-js",
-    "international-phone-validator",
+    "international-phone-validator-js",
     "international-phone-number",
     "mobile-phone-validation",
     "libphonenumber",

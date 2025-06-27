@@ -1,4 +1,4 @@
-# phone-validator
+# phone-validator-js
 
 Check phone number validation with js and ts
 
@@ -35,17 +35,17 @@ No matter which JavaScript or TypeScript environment you're working in, this pac
 ## Installation
 
 ```bash
-npm install phone-validator
+npm install phone-validator-js
 
 // or
 
-yarn add phone-validator
+yarn add phone-validator-js
 ```
 
 ## Usage
 
 ```js
-import validatePhoneNumber from "phone-validator";
+import validatePhoneNumber from "phone-validator-js";
 
 const result = validatePhoneNumber({
   callingCode: "+91",
