@@ -1,4 +1,4 @@
-# validate-phone-number
+# phonevalidate
 
 Easily check if a phone number is valid for a specific country and calling code. Just provide the country code, calling code, and phone number to get a detailed validation result.
 
@@ -33,13 +33,13 @@ No matter which JavaScript or TypeScript environment you're working in, this pac
 ## Installation
 
 ```bash
-npm install validate-phone-number
+npm install phonevalidate
 ```
 
 ## Usage
 
 ```js
-import validatePhoneNumber from "validate-phone-number";
+import validatePhoneNumber from "phonevalidate";
 
 const result = validatePhoneNumber({
   callingCode: "+91",
