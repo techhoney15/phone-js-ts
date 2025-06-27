@@ -1,4 +1,4 @@
-# phone-number-validationjs
+# phone-validator
 
 Check phone number validation with js and ts
 
@@ -35,13 +35,17 @@ No matter which JavaScript or TypeScript environment you're working in, this pac
 ## Installation
 
 ```bash
-npm install phone-number-validationjs
+npm install phone-validator
+
+// or
+
+yarn add phone-validator
 ```
 
 ## Usage
 
 ```js
-import validatePhoneNumber from "phone-number-validationjs";
+import validatePhoneNumber from "phone-validator";
 
 const result = validatePhoneNumber({
   callingCode: "+91",
@@ -388,3 +392,9 @@ const result = validatePhoneNumber({
 }
 */
 ```
+
+---
+
+## 📚 Keywords
+
+phone number validation, phone validation, phone number js, phone number typescript, phone number validator, validate phone number, international phone number validation, mobile number validation, validate mobile number, phone number check, phone number verification, phone number parsing, phone number formatting, phone number formatter, phone number checker, phone validator js, phone validation npm package, phone number typescript library, phone number react validation, phone number nodejs validation, javascript phone validation, typescript phone validation, react phone validation, nodejs phone validation, nextjs phone validation, vue phone validation, svelte phone validation, angular phone validation, country code validation, calling code validation, libphonenumber alternative, lightweight phone validator, zero dependency phone validation, phone number utility library, phone input validation, form phone validation, validate user phone number, frontend phone number validation, backend phone number validation, phone number validation open source, phone number api alternative, npm phone validation package, validate international phone number, validate phone number with country code

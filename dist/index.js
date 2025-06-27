@@ -97,7 +97,7 @@ const _checkOnlyPhoneNumber = (_input) => {
         };
     }
 };
-export function validatePhoneNumber({ callingCode = "", countryCode = "", phone = "", }) {
+function validatePhoneNumber({ callingCode = "", countryCode = "", phone = "", }) {
     let CALLING_CODE;
     let COUNTRY_CODE;
     let PHONE;
@@ -196,3 +196,4 @@ export function validatePhoneNumber({ callingCode = "", countryCode = "", phone 
         },
     };
 }
+export default validatePhoneNumber;

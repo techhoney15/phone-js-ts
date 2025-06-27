@@ -111,7 +111,7 @@ const _checkOnlyPhoneNumber = (_input: any) => {
   }
 };
 
-export function validatePhoneNumber({
+function validatePhoneNumber({
   callingCode = "",
   countryCode = "",
   phone = "",
@@ -238,3 +238,5 @@ export function validatePhoneNumber({
     },
   };
 }
+
+export default validatePhoneNumber;
