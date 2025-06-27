@@ -197,73 +197,9 @@ console.log(resultJP);
   },
 }
 */
-```
 
-### More Failed Validation Examples
-
-```js
-// Example 7: Invalid country code (not recognized)
-const result7 = validatePhoneNumber({
-  countryCode: "ZZ",
-  phone: "1234567890",
-});
-console.log(result7);
-/*
-{
-  status: false,
-  error: "Invalid or unsupported country code: ZZ",
-  data: null
-}
-*/
-
-// Example 8: Missing phone number
-const result8 = validatePhoneNumber({
-  callingCode: "+1",
-  countryCode: "US",
-});
-console.log(result8);
-/*
-{
-  status: false,
-  error: "Phone number is required",
-  data: null
-}
-*/
-
-// Example 9: Phone number too short for country
-const result9 = validatePhoneNumber({
-  callingCode: "+49",
-  countryCode: "DE",
-  phone: "12345",
-});
-console.log(result9);
-/*
-{
-  status: false,
-  error: "Phone number is too short for country Germany",
-  data: null
-}
-*/
-
-// Example 10: Phone number contains invalid characters
-const result10 = validatePhoneNumber({
-  callingCode: "+44",
-  countryCode: "GB",
-  phone: "77OO-900123", // Letter 'O' instead of zero
-});
-console.log(result10);
-/*
-{
-  status: false,
-  error: "Phone number contains invalid characters",
-  data: null
-}
-*/
-```
-
-```js
-// Example 1: All three parameters (callingCode, countryCode, phone)
-const result1 = validatePhoneNumber({
+// Example: All three parameters (callingCode, countryCode, phone)
+const resultIN = validatePhoneNumber({
   callingCode: "+91",
   countryCode: "IN",
   phone: "98765-43210",
@@ -287,8 +223,8 @@ const result1 = validatePhoneNumber({
 }
 */
 
-// Example 2: Only callingCode and phone
-const result2 = validatePhoneNumber({
+// Example: Only callingCode and phone
+const resultGB = validatePhoneNumber({
   callingCode: "+44",
   phone: "7700 900123",
 });
@@ -311,8 +247,8 @@ const result2 = validatePhoneNumber({
 }
 */
 
-// Example 3: Only countryCode and phone
-const result3 = validatePhoneNumber({
+// Example: Only countryCode and phone
+const resultDE = validatePhoneNumber({
   countryCode: "DE",
   phone: "1512 3456789",
 });
@@ -335,8 +271,8 @@ const result3 = validatePhoneNumber({
 }
 */
 
-// Example 4: Only phone (auto-detects country if possible)
-const result4 = validatePhoneNumber({
+// Example: Only phone (auto-detects country if possible)
+const resultPhone = validatePhoneNumber({
   phone: "+61412345678",
 });
 /*
@@ -357,13 +293,74 @@ const result4 = validatePhoneNumber({
   },
 }
 */
+```
+
+### More Failed Validation Examples
+
+```js
+// Example: Invalid country code (not recognized)
+const resultZZ = validatePhoneNumber({
+  countryCode: "ZZ",
+  phone: "1234567890",
+});
+/*
+{
+  status: false,
+  error: "Invalid or unsupported country code: ZZ",
+  data: null
+}
+*/
+
+// Example: Missing phone number
+const resultUS = validatePhoneNumber({
+  callingCode: "+1",
+  countryCode: "US",
+});
+/*
+{
+  status: false,
+  error: "Phone number is required",
+  data: null
+}
+*/
+
+// Example: Phone number too short for country
+const resultDE = validatePhoneNumber({
+  callingCode: "+49",
+  countryCode: "DE",
+  phone: "12345",
+});
+/*
+{
+  status: false,
+  error: "Phone number is too short for country Germany",
+  data: null
+}
+*/
+
+// Example: Phone number contains invalid characters
+const resultGB = validatePhoneNumber({
+  callingCode: "+44",
+  countryCode: "GB",
+  phone: "77OO-900123", // Letter 'O' instead of zero
+});
+/*
+{
+  status: false,
+  error: "Phone number contains invalid characters",
+  data: null
+}
+*/
+```
+
+```js
 
 
 ## Failed Validation Example
 
 
-// Example 5: Invalid phone number for India (does not start with 6, 7, 8, or 9)
-const result5 = validatePhoneNumber({
+// Example: Invalid phone number for India (does not start with 6, 7, 8, or 9)
+const resultIN = validatePhoneNumber({
   callingCode: "91",
   countryCode: "IN",
   phone: "5876543210",
@@ -376,12 +373,11 @@ const result5 = validatePhoneNumber({
 }
 */
 
-// Example 6: Invalid calling code (not recognized)
-const result6 = validatePhoneNumber({
+// Example: Invalid calling code (not recognized)
+const result = validatePhoneNumber({
   callingCode: "+999",
   phone: "1234567890",
 });
-console.log(result6);
 /*
 {
   status: false,
