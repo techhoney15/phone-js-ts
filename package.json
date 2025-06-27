@@ -1,5 +1,5 @@
 {
-  "name": "telephone",
+  "name": "phone-js",
   "version": "1.0.1",
   "description": "Validate phone numbers by country or ISD code",
   "main": "dist/index.js",
@@ -9,12 +9,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/techhoney15/telephone.git"
+    "url": "git+https://github.com/techhoney15/phone-js.git"
   },
   "bugs": {
-    "url": "https://github.com/techhoney15/telephone/issues"
+    "url": "https://github.com/techhoney15/phone-js/issues"
   },
-  "homepage": "https://github.com/techhoney15/telephone#readme",
+  "homepage": "https://github.com/techhoney15/phone-js#readme",
   "author": "Honey Kumar",
   "license": "MIT",
   "keywords": [
@@ -24,12 +24,12 @@
     "phone-checker",
     "phone-check-js",
     "phphoneverify",
-    "telephone",
+    "phone-js",
     "phone-number-validation",
     "phone-number-validator",
     "phone-number-validation-js",
     "phone-number",
-    "telephone",
+    "phone-js",
     "validator",
     "validation",
     "npm"
@@ -37,7 +37,8 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npx tsc && node dist/index.js"
+    "build": "npx tsc && node dist/index.js",
+    "push": "git add . && git commit -m \"update\" && git push origin main"
   },
   "devDependencies": {
     "@types/jest": "^30.0.0",
