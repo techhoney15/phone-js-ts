@@ -1,5 +1,5 @@
 {
-  "name": "phonevalidation",
+  "name": "telephone",
   "version": "1.0.1",
   "description": "Validate phone numbers by country or ISD code",
   "main": "dist/index.js",
@@ -9,12 +9,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/techhoney15/phonevalidation.git"
+    "url": "git+https://github.com/techhoney15/telephone.git"
   },
   "bugs": {
-    "url": "https://github.com/techhoney15/phonevalidation/issues"
+    "url": "https://github.com/techhoney15/telephone/issues"
   },
-  "homepage": "https://github.com/techhoney15/phonevalidation#readme",
+  "homepage": "https://github.com/techhoney15/telephone#readme",
   "author": "Honey Kumar",
   "license": "MIT",
   "keywords": [
@@ -24,12 +24,12 @@
     "phone-checker",
     "phone-check-js",
     "phphoneverify",
-    "phonevalidation",
+    "telephone",
     "phone-number-validation",
     "phone-number-validator",
     "phone-number-validation-js",
     "phone-number",
-    "phonevalidation",
+    "telephone",
     "validator",
     "validation",
     "npm"

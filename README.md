@@ -1,4 +1,4 @@
-# phonevalidation
+# telephone
 
 A simple, lightweight, and easy-to-implement utility to validate international phone numbers and retrieve structured information—including country name, country codes, and formatted phone numbers.
 
@@ -33,13 +33,13 @@ No matter which JavaScript or TypeScript environment you're working in, this pac
 ## Installation
 
 ```bash
-npm install phonevalidation
+npm install telephone
 ```
 
 ## Usage
 
 ```js
-import validatePhoneNumber from "phonevalidation";
+import validatePhoneNumber from "telephone";
 
 const result = validatePhoneNumber({
   callingCode: "+91",
