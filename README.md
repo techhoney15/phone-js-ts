@@ -221,14 +221,12 @@ const result4 = validatePhoneNumber({
 
 ## Failed Validation Example
 
-```js
 // Example 5: Invalid phone number for India (does not start with 6, 7, 8, or 9)
 const result5 = validatePhoneNumber({
   callingCode: "91",
   countryCode: "IN",
   phone: "5876543210",
 });
-console.log(result5);
 /*
 {
   status: false,
@@ -236,7 +234,7 @@ console.log(result5);
   data: null
 }
 */
-```js
+
 // Example 6: Invalid calling code (not recognized)
 const result6 = validatePhoneNumber({
   callingCode: "+999",
