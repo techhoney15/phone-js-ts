@@ -77,7 +77,6 @@ console.log(result);
 
 You can also retrieve country information using the `getCountryData` function:
 
-```js
 import { getCountryData } from "phone-number-validation-js";
 
 // Example: Get country data by calling code
