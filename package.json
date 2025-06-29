@@ -85,10 +85,7 @@
     "push": "git add . && git commit -m \"update\" && git push origin main"
   },
   "devDependencies": {
-    "@types/jest": "^30.0.0",
     "@types/node": "^24.0.4",
-    "jest": "^30.0.3",
-    "ts-jest": "^29.4.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   }

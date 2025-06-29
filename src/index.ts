@@ -239,4 +239,24 @@ function validatePhoneNumber({
   };
 }
 
+
+export function getCountryData(callingCode?: string, countryCode?: string) {
+  if (!callingCode && !countryCode) {
+    return {
+      status: false,
+      error: "Please provide either calling code or country code",
+      data: null,
+    };
+  }
+  callingCode = _removeSpacesAndSpecialChars(callingCode || "");
+  countryCode = _removeSpacesAndSpecialChars(countryCode || "");
+
+  const countryData: any = countryPhoneData.find(
+    (country) =>
+      country.countryCode === countryCode ||
+      country.countryCallingCode === callingCode
+  );
+  return countryData;
+}
+
 export default validatePhoneNumber;

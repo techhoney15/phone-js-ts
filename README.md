@@ -1,6 +1,6 @@
 # phone-number-validation-js
 
-Check phone number validation with js and ts
+Check phone number validation with js and ts and get calling details by calling or country code
 
 A simple, lightweight, and easy-to-implement utility to validate international phone numbers and retrieve structured information—including country name, country codes, and formatted phone numbers.
 
@@ -71,6 +71,52 @@ console.log(result);
   },
 }
 */
+
+
+## Get Country Data Example
+
+You can also retrieve country information using the `getCountryData` function:
+
+```js
+import { getCountryData } from "phone-number-validation-js";
+
+// Example: Get country data by calling code
+const countryByCallingCode = getCountryData("+91");
+console.log(countryByCallingCode);
+/*
+{
+  countryCode: "IN",
+  countryCode3: "IND",
+  countryCallingCode: "91",
+  countryCallingCodeWithPlus: "+91",
+  countryName: "India"
+}
+*/
+
+// Example: Get country data by country code
+const countryByCountryCode = getCountryData(undefined, "US");
+console.log(countryByCountryCode);
+/*
+{
+  countryCode: "US",
+  countryCode3: "USA",
+  countryCallingCode: "1",
+  countryCallingCodeWithPlus: "+1",
+  countryName: "United States"
+}
+*/
+
+// Example: Neither calling code nor country code provided
+const missingParams = getCountryData();
+console.log(missingParams);
+/*
+{
+  status: false,
+  error: "Please provide either calling code or country code",
+  data: null
+}
+*/
+```
 ```
 
 ### Parameters
@@ -150,56 +196,6 @@ console.log(resultFR);
     formalPhoneNumber: "33 612345678",
     formalPhoneNumerWithPlus: "+33 612345678",
     standardizedPhoneNumber: "+33 612345678",
-  },
-}
-*/
-
-// Example: Validate a Brazilian number with formatting
-const resultBR = validatePhoneNumber({
-  callingCode: "+55",
-  countryCode: "BR",
-  phone: "(11) 91234-5678",
-});
-console.log(resultBR);
-/*
-{
-  status: true,
-  error: null,
-  message: "Phone number is valid for Brazil (BR)",
-  data: {
-    countryCode: "BR",
-    countryCode3: "BRA",
-    countryCallingCode: "55",
-    countryCallingCodeWithPlus: "+55",
-    countryName: "Brazil",
-    phone: "(11) 91234-5678",
-    formalPhoneNumber: "55 (11) 91234-5678",
-    formalPhoneNumerWithPlus: "+55 (11) 91234-5678",
-    standardizedPhoneNumber: "+55 (11) 91234-5678",
-  },
-}
-*/
-
-// Example: Validate a Japanese number (auto-detect country)
-const resultJP = validatePhoneNumber({
-  phone: "+819012345678",
-});
-console.log(resultJP);
-/*
-{
-  status: true,
-  error: null,
-  message: "Phone number is valid for Japan (JP)",
-  data: {
-    countryCode: "JP",
-    countryCode3: "JPN",
-    countryCallingCode: "81",
-    countryCallingCodeWithPlus: "+81",
-    countryName: "Japan",
-    phone: "+819012345678",
-    formalPhoneNumber: "81 +819012345678",
-    formalPhoneNumerWithPlus: "+81 +819012345678",
-    standardizedPhoneNumber: "+81 +819012345678",
   },
 }
 */
@@ -343,23 +339,6 @@ const resultDE = validatePhoneNumber({
   data: null
 }
 */
-
-// Example: Phone number contains invalid characters
-const resultGB = validatePhoneNumber({
-  callingCode: "+44",
-  countryCode: "GB",
-  phone: "77OO-900123", // Letter 'O' instead of zero
-});
-/*
-{
-  status: false,
-  error: "Phone number contains invalid characters",
-  data: null
-}
-*/
-```
-
-```js
 
 
 ## Failed Validation Example

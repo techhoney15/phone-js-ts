@@ -196,4 +196,19 @@ function validatePhoneNumber({ callingCode = "", countryCode = "", phone = "", }
         },
     };
 }
+export function getCountryData(callingCode, countryCode) {
+    if (!callingCode && !countryCode) {
+        return {
+            status: false,
+            error: "Please provide either calling code or country code",
+            data: null,
+        };
+    }
+    callingCode = _removeSpacesAndSpecialChars(callingCode || "");
+    countryCode = _removeSpacesAndSpecialChars(countryCode || "");
+    const countryData = countryPhoneData.find((country) => country.countryCode === countryCode ||
+        country.countryCallingCode === callingCode);
+    return countryData;
+}
+console.log(getCountryData(), "getCountryData result");
 export default validatePhoneNumber;
