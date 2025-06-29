@@ -116,38 +116,6 @@ console.log(missingParams);
 }
 */
 ```
-```
-
-### Parameters
-
-- `callingCode` (string): The country calling code (e.g., "+91", "91", "1", "44").
-- `countryCode` (string): The ISO country code (e.g., "IN", "US", "GB", "USA").
-- `phone` (string): The phone number to validate (e.g., "9876543210", "4155552671", "15123456789").
-
-#### Example Parameters
-
-```js
-// Example: India
-{
-  callingCode: "+91",
-  countryCode: "IN",
-  phone: "9876543210",
-}
-
-// Example: United States
-{
-  callingCode: "+1",
-  countryCode: "US",
-  phone: "4155552671",
-}
-
-// Example: Germany
-{
-  callingCode: "+49",
-  countryCode: "DE",
-  phone: "15123456789",
-}
-```
 
 ### Return Value
 
