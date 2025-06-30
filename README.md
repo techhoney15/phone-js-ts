@@ -1,5 +1,7 @@
 # phone-number-validation-js
 
+**Supports both JavaScript and TypeScript.**
+
 Check phone number validation with js and ts and get calling details by calling or country code
 
 A simple, lightweight, and easy-to-implement utility to validate international phone numbers and retrieve structured information—including country name, country codes, and formatted phone numbers.
