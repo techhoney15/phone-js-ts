@@ -1,6 +1,6 @@
 # phone-number-validation-js
 
- > **Guideline:** <u>**Supports both JavaScript and TypeScript.**</ul>
+ > **Note:** <u>**Supports both JavaScript and TypeScript.**</ul>
 
 Check phone number validation with js and ts and get calling details by calling or country code
 
